@@ -2,7 +2,6 @@
 @(h1: String, msg: String, route: play.api.mvc.Call, myForm: Form[Message])
 @main("Sample Page")(h1) {
   <p>@msg</p>
-
   @helper.form(action = route) {
     @(helper.inputText(myForm("name"), args = '_label -> "name"))
     @(helper.inputText(myForm("mail"), args = '_label -> "mail"))

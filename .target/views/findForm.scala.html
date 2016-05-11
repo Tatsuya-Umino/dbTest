@@ -1,0 +1,18 @@
+@(h1: String, msg: String, route: play.api.mvc.Call, label: String, column: String, datas: List[Message], myForm: Form[Message])
+
+@main("Sample Page")(h1) {
+  <p>@msg</p>
+  @helper.form(action = route) {
+    @(helper.inputText(myForm(column), args = '_label -> label))
+    @if(column == "id"){
+      <div>
+        <input type = "hidden" name = "name" value = "hoge">
+      </div>
+    }
+    <input type = "submit" value = "送信">
+  }
+
+  @if(!datas.isEmpty()) {
+    <div>@datas</div>
+  }
+}
